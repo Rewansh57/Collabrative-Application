@@ -1,21 +1,15 @@
 package org.example.projectsh.realtimechat;
 
-import org.example.projectsh.realtimechat.model.Message;
-import org.example.projectsh.realtimechat.model.OutputMessage;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+@RestController
+public class MessageController{
 
-@MessageMapping("/chat")
-@SendTo("/topic/messages")
-
-public class MessageController {
-    public OutputMessage send(Message message){
-        String time =new SimpleDateFormat("HH:mm").format(new Date());
-        return new OutputMessage(message.getFrom(),message.getText(),time);
-
+    @GetMapping("/hello")
+    public String hello(){
+        return "hello";
 
     }
+
 }
