@@ -38,7 +38,6 @@ public class SocketEventListener {
     public void handleClientDisconnectListener(SessionDisconnectEvent event) {
         StompHeaderAccessor accessor= StompHeaderAccessor.wrap(event.getMessage());
        String sesId= accessor.getSessionId();
-
        webSocketConnectedRegistry.removeClient(sesId);
        System.out.println("Client disconnected: "+sesId);
 
