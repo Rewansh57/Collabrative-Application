@@ -11,33 +11,20 @@ import java.util.Scanner;
 
 @SpringBootApplication
 public class RealTimeChatApplication {
-
-
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         SpringApplication app=new SpringApplication(RealTimeChatApplication.class);
         app.setWebApplicationType(WebApplicationType.NONE);
         ConfigurableApplicationContext context =app.run(args);
-
         TomcatServletWebServerFactory factory=context.getBean(TomcatServletWebServerFactory.class);
         int port=sc.nextInt();
+
         sc.nextLine();
-
         factory.setPort(port);
-
         WebServer webServer=factory.getWebServer();
-
-
-
-
-
-
         boolean running = true;
-
         while (running) {
             String command = sc.nextLine().trim().toLowerCase();
-
             switch (command) {
                 case "start":
                     webServer.start();
