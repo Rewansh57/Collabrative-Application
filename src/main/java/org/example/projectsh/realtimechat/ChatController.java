@@ -2,7 +2,6 @@ package org.example.projectsh.realtimechat;
 
 import org.example.projectsh.realtimechat.model.Message;
 import org.example.projectsh.realtimechat.model.OutputMessage;
-import org.example.projectsh.realtimechat.model.Testing;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
@@ -13,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 
 @Controller
 public class ChatController {
-    @MessageMapping("/message")
+    @MessageMapping("/public-chat")
     @SendTo("/topic/message")
     public OutputMessage getBroadcastedMessage(Message message){
 
