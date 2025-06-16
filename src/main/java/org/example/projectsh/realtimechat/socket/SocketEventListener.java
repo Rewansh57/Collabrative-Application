@@ -26,8 +26,6 @@ public class SocketEventListener {
         if (!(username==null)){
             webSocketConnectedRegistry.addClient(sessionId, username);
             System.out.println("Client connected: "+sessionId);
-
-
         }
 
 
@@ -35,6 +33,7 @@ public class SocketEventListener {
 
 
     }
+    @EventListener
     public void handleClientDisconnectListener(SessionDisconnectEvent event) {
         StompHeaderAccessor accessor= StompHeaderAccessor.wrap(event.getMessage());
        String sesId= accessor.getSessionId();

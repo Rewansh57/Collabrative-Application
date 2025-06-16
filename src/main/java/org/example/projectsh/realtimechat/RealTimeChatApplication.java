@@ -1,4 +1,5 @@
 package org.example.projectsh.realtimechat;
+import org.example.projectsh.realtimechat.model.Testing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,6 +13,15 @@ import java.util.Scanner;
 @SpringBootApplication
 public class RealTimeChatApplication {
     public static void main(String[] args) {
+        Testing first=Testing.builder()
+                .name("helo")
+                .desc("a test")
+                .build();
+
+
+
+        System.out.println(first.toString());
+
         Scanner sc = new Scanner(System.in);
         SpringApplication app=new SpringApplication(RealTimeChatApplication.class);
         app.setWebApplicationType(WebApplicationType.NONE);
