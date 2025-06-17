@@ -7,6 +7,8 @@ import lombok.Setter;
 @Setter
 public class Message {
     private String from;
+    private String recipient="All";
+
     private String body;
 
 
