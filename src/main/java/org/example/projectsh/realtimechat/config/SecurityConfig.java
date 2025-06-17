@@ -21,12 +21,12 @@ public class SecurityConfig {
     public InMemoryUserDetailsManager inMemoryUserDetailsManager(PasswordEncoder passwordEncoder) {
         UserDetails user1= User.builder()
                 .username("user1")
-                .password("123")
+                .password(passwordEncoder.encode("123"))
                 .roles("USER")
                 .build();
         UserDetails user2=User.builder()
                 .username("user2")
-                .password("456")
+                .password(passwordEncoder.encode("456"))
                 .roles("USER")
                 .build();
 
@@ -38,7 +38,7 @@ public class SecurityConfig {
 
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
        http.authorizeHttpRequests(request->{
-           request.requestMatchers("/app/public-chat").permitAll()
+           request.requestMatchers("/", "/login", "/error", "/ws/**").permitAll()
                    .anyRequest().authenticated();
 
        }).csrf((c)->c.disable())
