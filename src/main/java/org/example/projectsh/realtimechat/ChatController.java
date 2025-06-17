@@ -17,10 +17,6 @@ import java.time.format.DateTimeFormatter;
 public class ChatController {
     private SimpMessagingTemplate messagingTemplate;
 
-    public ChatController(SimpMessagingTemplate messagingTemplate) {
-        this.messagingTemplate = messagingTemplate;
-
-    }
 
     @MessageMapping("/public-chat")
     @SendTo("/topic/message")
